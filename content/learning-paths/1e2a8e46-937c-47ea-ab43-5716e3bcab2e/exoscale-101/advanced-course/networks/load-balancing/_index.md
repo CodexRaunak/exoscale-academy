@@ -121,7 +121,4 @@ Security Groups Examples
 
 > without this rule, backend instances cannot access each other on 8080
 
-{{< meshery-design-embed
-id="embedded-design-7cf06acc-8a18-4dd0-9b29-4bcd57fda829"
-src="SG-example2.js"
->}}
+{{< meshery-design-embed id="embedded-design-7cf06acc-8a18-4dd0-9b29-4bcd57fda829" src="SG-example2.js" >}}
