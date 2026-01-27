@@ -5,7 +5,7 @@ name: preview-deploy
 on:
   pull_request_target:
     branches: [ "master" ]
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, closed]
 
 
   workflow_dispatch:
@@ -89,7 +89,14 @@ jobs:
           umbrella-dir: pr-preview
           action: auto
           comment: false
-
+          
+      - name: Cleanup PR Preview on Clos e
+        if: github.event.action == 'closed'
+        uses: rossjrw/pr-preview-action@v1.6.3
+        with:
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: remove
 
       - name: Comment PR with Preview URL
         uses: marocchino/sticky-pull-request-comment@v2
